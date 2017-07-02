@@ -1,0 +1,29 @@
+<% include ../partials/header.ejs %>
+    <div style="margin:100px;">
+        <% if( typeof courseName !=='undefined' && courseName !== null){ %>
+            <h3> Add Chapters to
+                <%= courseName %> Course</h3>
+            <div style='display:none;' id="chaptererror" class="alert alert-danger">
+            </div>
+            <% } %>
+                <% if( typeof message !=='undefined' && message !== null){ %>
+                    <div class="alert alert-success">
+                        <%= message %>
+                    </div>
+                    <% } %>
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="number">Enter the Number of chapters</label>
+                                <input type="number" class="form-control" id="NoOfChapters" min=0 name="NoOfChapters">
+                            </div>
+
+                            <div id="chapterInputDiv" style="display:none;">
+                            </div>
+                            <% if( typeof courseId !=='undefined' && courseId !== null){ %>
+
+                                <input type="hidden" id="courseId" value="<%= courseId %>" name="courseId">
+                                <% } %>
+                                    <input type="submit" id="addChapters" style="display:none;" class="btn btn-primary" value="Add chapters">
+                        </form>
+    </div>
+    <% include ../partials/footer.ejs %>

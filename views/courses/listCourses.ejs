@@ -1,0 +1,30 @@
+<% include ../partials/header.ejs %>
+	<div style="height:600px;">
+		<div style="margin:100px;">
+			<h2 style="font-family:Tahoma;"> All Courses</h2>
+
+			<% if(courses.length !=0) {%>
+				<% courses.forEach(function(course){ %>
+					<a href="/courses/showCourse/<%= course.name %>/<%= course.id %>" class="btn btn-default btn-lg">
+						<%= course.name %>
+					</a>
+					<%	}) ;%>
+						<% }else{ %>
+							<h3>There is no courses </h3>
+							<% } %>
+								<h6 style="color:red;font-family:serif;font-size:15px;"> Click on course Name to add Chapters </h6>
+		</div>
+		<div style="margin:80px;">
+			<form class="col-md-5" method="post">
+				<div class="form-group ">
+					<label for="name">Course Name:</label>
+					<input type="text" class="form-control" id="courseName" placeholder="Course name" name="coursename">
+				</div>
+				<button type="submit" id="addcourse" class="btn btn-primary">Add New Course</button>
+				<div id="errorNamecourse" class="alert alert-danger" style="display:none;margin:10px;"></div>
+			</form>
+		</div>
+
+
+	</div>
+	<% include ../partials/footer.ejs %>

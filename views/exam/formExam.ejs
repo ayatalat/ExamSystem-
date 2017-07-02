@@ -1,0 +1,41 @@
+<% include ../partials/header.ejs %>
+    <form style="margin:100px;" method="post">
+        <h1 style="font-family:Tahoma;"> Design Exam </h1>
+        <div id="errorDiv" class="alert alert-danger" role="alert" style="display:none;">
+
+        </div>
+        <div class="form-group">
+            <label for="coursename">choose Course Name</label>
+            <select class="form-control" id="selectCourse" name="courseName">
+                <% courses.forEach(function(course){ %>
+                <option><%= course.name %></option>
+                <% }); %>
+            </select>
+        </div>
+
+        <div class="form-group" id="chapterdiv" style="display:none;">
+            <label for="coursename">choose Chapters:</label>
+        </div>
+        <table class="table" id="datatable" style="display:none;">
+            <thead class="thead-default">
+                <tr>
+                    <th>No.Difficult Questions</th>
+                    <th>No.Simple Questions</th>
+                    <th>No.of Remaing Questions</th>
+                    <th>No.of Understanding Questions</th>
+                    <th>No.of Creative Questions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td><input type="number" class="form-control" min=0 name="NoOfDiffcultQ"></td>
+                <td><input type="number" class="form-control" min=0 name="NoOfSimpleQ"></td>
+                <td><input type="number" class="form-control" min=0 name="NoOfRemainQ"></td>
+                <td><input type="number" class="form-control" min=0 name="NoOfUnderstandQ"></td>
+                <td><input type="number" class="form-control" min=0 name="NoOfCreativeQ"></td>
+            </tbody>
+        </table>
+        <button type="submit" id="designBtn" style="display:none;" class="btn btn-primary">design your Exam</button>
+
+    </form>
+    <script src="/js/script.js"></script>
+    <% include ../partials/footer.ejs %>

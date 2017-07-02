@@ -1,0 +1,89 @@
+<% include ../partials/header.ejs %>
+    <div style="margin: 100px;">
+        <h2 class="h2"> Add Questions </h2>
+        <div id="errordivAddQuestions" class="alert alert-danger" style="display:none">
+        </div>
+        <form method="post">
+            <div style="height:600px;">
+                <% if( typeof courses !=='undefined' && courses !== null){ %>
+                    <label for="selectCourse"> Choose course Name: </label>
+                    <select class="form-control" id="selectCourse" name="selectcourses">
+                    <% if(courses.length !=0) {%>
+                        <% courses.forEach(function(course){ %>
+                             <option ><%=course.name%> </option>
+                        <% });%>
+                    <% } %>
+             <% } %>
+
+        <% if( typeof message !=='undefined' && message !== null){ %>
+             <div class="alert alert-success" > <%= message %> </div>
+        <% } %>
+
+           </div>
+                </select>
+                    <div id="selectchapterDiv" style="display:none;">
+                        <br>
+                        <label for="selectchapter"> Choose chapter Name: </label>
+                        <select class="form-control" id="selectchapter" name="selectChapters">
+                    </select>
+                        <br>
+                        <label> Add Questions </label>
+                        <table class="table  table-bordered" id="questionstable">
+                            <thead class="thead-default">
+                                <tr>
+                                    <th> Question title </th>
+                                    <th> answer No.1 </th>
+                                    <th> answer No.2 </th>
+                                    <th> answer No.3 </th>
+                                    <th> correct answer </th>
+                                    <th> Question Type</th>
+                                    <th> Question Objective </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i=0;i<12;i++) { %>
+                                    <tr>
+                                        <td><textarea class="form-control vaildText" rows=8 cols=15 name="questionsbody"></textarea></td>
+                                        <td><input class="form-control vaildText" name="answer0"></td>
+                                        <td><input class="form-control vaildText" name="answer1"></td>
+                                        <td><input class="form-control vaildText" name="answer2"></td>
+                                        <td><input class="form-control vaildText" name="correctanswer"></td>
+                                        <td>
+                                            <div class="radio">
+                                                <label><input type="radio" name="type<%= i %>"  value="0">
+                                                      diffcult
+                                                      </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="type<%= i %>"  value="1" >
+                                                    simple
+                                                    </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="radio">
+                                                <label><input type="radio" name="objective<%= i %>" value='0' >
+                                                remaining
+                                              </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="objective<%= i %>" value='1' >
+                                                  understanding
+                                                  </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="objective<%= i %>" value='2'>
+                                                creative
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                        </table>
+                        <input type="submit" style="margin:50px auto;width:200px;height:50px;" id="addQuestions" class="btn btn-primary" value="add Questions">
+        </form>
+        </div>
+        </div>
+    </div>
+    <% include ../partials/footer.ejs %>
