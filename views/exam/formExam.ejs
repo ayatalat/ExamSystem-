@@ -7,8 +7,9 @@
         <div class="form-group">
             <label for="coursename">choose Course Name</label>
             <select class="form-control" id="selectCourse" name="courseName">
+                    <option>---</option>
                 <% courses.forEach(function(course){ %>
-                <option><%= course.name %></option>
+                 <option><%= course.name %></option>
                 <% }); %>
             </select>
         </div>

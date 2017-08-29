@@ -8,6 +8,7 @@
                 <% if( typeof courses !=='undefined' && courses !== null){ %>
                     <label for="selectCourse"> Choose course Name: </label>
                     <select class="form-control" id="selectCourse" name="selectcourses">
+                     <option>---</option>
                     <% if(courses.length !=0) {%>
                         <% courses.forEach(function(course){ %>
                              <option ><%=course.name%> </option>

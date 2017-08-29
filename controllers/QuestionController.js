@@ -64,7 +64,7 @@ var QuestionsController = {
         let understandNum = req.body.NoOfUnderstandQ
         let creativeNum = req.body.NoOfCreativeQ
         const resultArray = [];
-        console.log(req.body.chapterName[0]);
+        //console.log(req.body.chapterName[0]);
         // loop array to get type and objective
         // check if the no of question in each chapter == required
         for (var i = 0; i < questionsArr.length; i++) {
